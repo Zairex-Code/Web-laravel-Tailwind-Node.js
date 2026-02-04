@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class heart extends Model
+class Heart extends Model
 {
     //
 }

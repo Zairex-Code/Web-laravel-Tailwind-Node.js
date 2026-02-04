@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Question>
+ * 
+ * 🏭 THE FACTORY = THE MOLD
+ * This file describes how a "Question" is made.
  */
 class QuestionFactory extends Factory
 {
@@ -17,7 +20,8 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
         ];
     }
 }

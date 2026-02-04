@@ -8,6 +8,9 @@ use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * 
+ * 🏭 THE FACTORY = THE MOLD
+ * This file describes how a "User" is made.
  */
 class UserFactory extends Factory
 {

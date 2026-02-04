@@ -5,7 +5,10 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\comment>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
+ * 
+ * 🏭 THE FACTORY = THE MOLD
+ * This file describes how a "Comment" is made.
  */
 class CommentFactory extends Factory
 {
@@ -17,7 +20,8 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            
+            'content' => $this->faker->paragraph(),
         ];
     }
 }
