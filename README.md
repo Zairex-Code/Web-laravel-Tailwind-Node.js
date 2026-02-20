@@ -60,7 +60,7 @@ Open the `.env` file and configure your database settings:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=laravel_forum  <-- Create this empty database in your MySQL (phpMyAdmin/HeidiSQL)
+DB_DATABASE=laravel_forum (phpMyAdmin/HeidiSQL)
 DB_USERNAME=root
 DB_PASSWORD=
 ```

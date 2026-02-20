@@ -9,15 +9,25 @@
     It's your built-in shield against XSS attacks.
 --}}
 
-{{-- Question Title --}}
-<h1>
-    {{ $question->title }}
-</h1>
+<x-forum.layouts.app>
 
-{{-- Question Description --}}
-<p class="text-gray-600 mb-4">
-    {{ $question->description }}
-</p>
+    <div class="space-y-4">
+        {{-- Question Title --}}
+        <h1 class="text-2xl font-bold text-gray-900">
+            {{ $question->title }}
+        </h1>
+
+        {{-- Question Description --}}
+        <p class="text-gray-700">
+            {{ $question->description }}
+        </p>
+
+        {{-- Meta Info --}}
+        <div class="text-sm text-gray-500">
+            Asked by {{ $question->user->name }} • {{ $question->created_at->diffForHumans() }}
+        </div>
+    </div>
+
 
 {{--
     🔄 ANSWERS LOOP
@@ -35,3 +45,5 @@
         </div>
     @endforeach
 --}}
+
+</x-forum.layouts.app>

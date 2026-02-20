@@ -9,8 +9,8 @@
 
         <li class="flex justify-between gap-4 py-4">
             <div class="flex gap-4">
-                <div class="size-8 rounded-full flex items-center justify-center" style="background-color: #000;">
-                    <!-- logo -->
+                <div class="size-8 rounded-full flex items-center justify-center" style="background-color: {{ $question->category->color }};">
+                    <x-forum.avatar />
                 </div>
                 <div class="flex-auto">
                     <p class="text-sm font-semibold text-gray-900">
