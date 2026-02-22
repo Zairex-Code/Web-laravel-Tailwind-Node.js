@@ -40,7 +40,7 @@ $store = function () {
     ]);
 
     // Step C: Reset the state.
-    // Clear the textarea and hide the form so the user sees their new comment immediately.
+    // Clear the textarea and hide the form so the user sees the updated comments immediately.
     $this->body = '';
     $this->showForm = false;
 };
