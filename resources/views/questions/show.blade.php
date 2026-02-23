@@ -15,9 +15,13 @@
         <div>&hearts;</div>
 
         <div class="w-full">
+
+            
             {{-- 📌 QUESTION TITLE --}}
             <h2 class="text-2xl font-bold md:text-3xl">
+
                 {{ $question->title }}
+
             </h2>
 
             <div class="flex justify-between">
