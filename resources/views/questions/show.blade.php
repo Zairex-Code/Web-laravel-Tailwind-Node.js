@@ -16,7 +16,7 @@
 
         <div class="w-full">
 
-            
+
             {{-- 📌 QUESTION TITLE --}}
             <h2 class="text-2xl font-bold md:text-3xl">
 
@@ -113,5 +113,42 @@
         </li>
         @endforeach
     </ul>
+
+    {{--
+        ✍️ NEW STYLIZED ANSWER FORM (At the bottom)
+        This form allows users to submit a new answer to the current question.
+        - action: Uses the 'answers.store' route, passing the $question model to build the URL (e.g., /questions/28/answers).
+        - method="POST": Required for sending data to create a new resource.
+        - @csrf: Generates a hidden token to protect against Cross-Site Request Forgery attacks.
+        - name="content": The key used to package the textarea's data in the HTTP request payload.
+    --}}
+    <div class="mt-10 pt-6 border-t border-gray-800">
+        <h3 class="text-lg font-semibold text-white mb-4">Tu respuesta</h3>
+        <form action="{{ route('answers.store', $question) }}" method="POST">
+            @csrf
+            <div class="flex flex-col gap-3">
+                <textarea
+                    name="content"
+                    rows="4"
+                    class="w-full rounded-lg bg-gray-900 border border-gray-700 text-white text-sm p-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-y transition-all"
+                    placeholder="Escribe tu respuesta detallada aquí..."
+                    required
+                ></textarea>
+
+                @error('content')
+                    <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+
+                <div class="flex justify-end">
+                    <button
+                        type="submit"
+                        class="text-sm text-white bg-blue-600 hover:bg-blue-500 rounded-md px-6 py-2.5 cursor-pointer font-semibold transition-colors shadow-sm"
+                    >
+                        Publicar respuesta
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 
 </x-forum.layouts.app>

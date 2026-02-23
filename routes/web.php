@@ -3,6 +3,7 @@
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
 use App\Models\Question;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +20,17 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 // 2. The Question Detail Route (GET /questions/{question})
 // {question} is a WILDCARD or PARAMETER.
 // If someone visits /questions/5, Laravel grabs "5".
-// 
+//
 // 🔑 KEY CONCEPT: Route Model Binding
 // Because we used `{question}` here, and `show(Question $question)` in the controller,
 // Laravel AUTOMATICALLY finds the Question with ID=5 for us. Magic! 🎩
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
+
+// Route to handle submitting a new answer to a specific question
+// 📝 ANSWER ROUTES
+// POST request to store a new answer for a specific question.
+// The {question} parameter uses Route Model Binding to automatically fetch the Question model.
+Route::post('questions/{question}/answers', [AnswerController::class, 'store'])->name('answers.store');
 
 // 3. Authenticated Routes
 // These routes are protected by a bouncer (Middleware).
