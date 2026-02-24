@@ -328,7 +328,7 @@ Instead of using your password or setting up SSH keys on a public computer, you 
 When you clone the repo at the university, tell Git who you are **only for this specific folder**, not for the whole computer:
 ```bash
 # Inside your project folder:
-git config user.name "Dylancito29"
+git config user.name "Zairex-Code"
 git config user.email "your-email@example.com"
 ```
 *(Notice we didn't use `--global`. This keeps your identity locked only to this folder).*
@@ -336,7 +336,7 @@ git config user.email "your-email@example.com"
 **3. Pushing your code (The Secure Way):**
 When you are ready to save your work and send it to GitHub, do your normal `git add` and `git commit`.
 When you run `git push`, it will ask for your credentials:
-- **Username:** `Dylancito29`
+- **Username:** `Zairex-Code`
 - **Password:** Paste your **Personal Access Token** here (NOT your real GitHub password).
 
 **4. Before you leave the University (CRITICAL):**
