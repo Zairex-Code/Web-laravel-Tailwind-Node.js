@@ -349,4 +349,75 @@ rm -rf Web-laravel-Tailwind-Node.js
 Since you pushed your changes to GitHub, your code is safe in the cloud. Next time you go to class, just `git clone` it again!
 
 ---
+
+## ⚡ 9. Livewire & Volt: Reactive Components
+
+Livewire is a magical tool in Laravel that allows you to write dynamic interfaces (like React or Vue) but **using only PHP and Blade**. You don't need to write JavaScript to make the page update without reloading.
+
+**Volt** is the most modern and elegant way to write Livewire components. It allows you to have the logic (PHP) and the view (HTML/Blade) in a single file, making it super fast to develop.
+
+### How to create a Functional Volt Component?
+
+To create a reactive component (for example, a "Like" button or a comment system), we use the following command in the terminal:
+
+```bash
+php artisan make:volt component-name --functional
+```
+
+**Why do we use `--functional`?**
+Because it tells Volt to use the "Functional API". This means it won't create a traditional PHP class, but instead will use simple functions within the same Blade file. It's lighter, requires less code, and is the recommended way for small to medium components.
+
+### Anatomy of a Functional Volt Component
+
+When you run the command (e.g., `php artisan make:volt heart --functional`), a file is created at `resources/views/livewire/heart.blade.php`.
+
+The file is divided into two main parts:
+
+#### 1. The Logic (PHP)
+It goes at the top, enclosed in `<?php ?>` tags. Here you define the state (variables) and actions (functions).
+
+```php
+<?php
+use function Livewire\Volt\{state, action};
+
+// 1. Define the state (variables that can change)
+state(['count' => 0]);
+
+// 2. Define actions (what happens when the user interacts)
+$increment = action(function () {
+    $this->count++;
+});
+?>
+```
+
+#### 2. The View (Blade/HTML)
+It goes below the PHP block. Here you design how the component looks and connect it to the logic using `wire:` directives.
+
+```blade
+<div>
+    <!-- wire:click connects the button to the $increment function above -->
+    <button wire:click="increment" class="text-red-500">
+        ❤️ {{ $count }}
+    </button>
+</div>
+```
+
+### How to use the component in your pages?
+
+Once created, you can insert this component into any other Blade view (for example, inside a post or an answer) using the `<livewire: ... />` tag:
+
+```blade
+<!-- In resources/views/pages/home.blade.php -->
+<div class="post">
+    <h2>My first post</h2>
+    <p>Post content...</p>
+    
+    <!-- Here we insert our reactive component -->
+    <livewire:heart />
+</div>
+```
+
+And that's it! You have a "Like" button that updates in real-time without reloading the page, written 100% in PHP.
+
+---
 *This project is your base. Any questions, I'm here to explain more! - GitHub Copilot*

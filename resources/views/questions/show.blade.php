@@ -12,7 +12,8 @@
 <x-forum.layouts.app>
     <div class="flex items-center gap-2 w-full my-8">
         {{-- Placeholder for the "Heart/Like" button --}}
-        <div>&hearts;</div>
+        
+        <livewire:heart :heartable="$question"/>
 
         <div class="w-full">
 
